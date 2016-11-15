@@ -1,12 +1,14 @@
-<html>
-<head><title>this is the title
-</title>
-</head>
-<p><b>this is a heading</b></p>
-{% for post in posts %}
-  <div>
-      <p>published: {{ post.published_date }}</p>
-      <h1><a href="">{{ post.title }}</a></h1>
-      <p>{{ post.text|linebreaksbr }}</p>
-  </div>
+<!--pk is the post number and is just a variable-->
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div class="date">
+                {{ post.published_date }}
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+
 {% endfor %}
+{% endblock %}
